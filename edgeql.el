@@ -9,7 +9,8 @@
   "Keymap for EdgeQL major mode")
 
 ;; automatically associate buffers with .eql files to this mode
-(add-to-list 'auto-mode-alist '("\\.eql\\'" . edgeql-mode))
+(add-to-list 'auto-mode-alist '("\\.eql$'" . edgeql-mode))
+(add-to-list 'auto-mode-alist '("\\.esdl$" . edgeql-mode))
 
 
 ;; Syntax highlight for keywords
