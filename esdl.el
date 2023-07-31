@@ -1,50 +1,20 @@
+(load! "./helpers.el")
+
+(defvar esdl-keywords
+  (append lowercase-keywords
+          '("extending"
+            "link"
+            "multi"
+            "property"
+            "required"
+            "scalar"
+            "type"
+            "constraint")))
+
 (define-generic-mode 'esdl-mode
   '("#")
-  '("aggregate"
-    "alter"
-    "and"
-    "any"
-    "commit"
-    "create"
-    "delete"
-    "detached"
-    "distinct"
-    "drop"
-    "else"
-    "empty"
-    "exists"
-    "false"
-    "filter"
-    "function"
-    "get "
-    "group"
-    "if"
-    "ilike"
-    "in"
-    "insert"
-    "is"
-    "like"
-    "limit"
-    "module"
-    "multi"
-    "not"
-    "offset"
-    "or"
-    "order"
-    "over"
-    "partition"
-    "required"
-    "rollback"
-    "select"
-    "set"
-    "singleton"
-    "start"
-    "true"
-    "type"
-    "update"
-    "union"
-    "with")
+  (edgeql-add-upcase-keywords esdl-keywords)
   nil
   '("\\.esdl$")
   nil
-  "ESDL mode")
+  "EdgeDB Schema Mode")
