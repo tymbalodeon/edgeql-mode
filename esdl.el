@@ -2,23 +2,24 @@
 
 (defvar esdl-keywords
   (append lowercase-keywords
-          '("extending"
+          '("constraint"
+            "default"
+            "extending"
             "link"
             "multi"
             "property"
             "required"
             "scalar"
-            "type"
-            "constraint")))
+            "type")))
 
 (define-generic-mode 'esdl-mode
   '("#")
   (edgeql-add-upcase-keywords esdl-keywords)
-  '(("datetime" . 'font-lock-builtin-face)
-    ("str" . 'font-lock-builtin-face)
-    ("bool" . 'font-lock-builtin-face)
-    ("exclusive" . 'font-lock-constant-face)
-    ("int32" . 'font-lock-builtin-face))
+  '(("bool" . 'font-lock-type-face)
+    ("datetime" . 'font-lock-type-face)
+    ("exclusive" . 'font-lock-variable-name-face)
+    ("int32" . 'font-lock-type-face)
+    ("str" . 'font-lock-type-face))
   '("\\.esdl$")
   nil
   "EdgeDB Schema Mode")
