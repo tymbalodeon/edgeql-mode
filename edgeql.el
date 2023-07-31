@@ -39,16 +39,16 @@
 ;; "session" "single" "source" "system" "target" "ternary" "then" "to"
 ;; "transaction" "using"  "write"
 
-
-
 (setq edgeql-keywords-statements
       '("create"  "alter"
         "select" "for" "insert" "update" "delete" "with" "introspect"
         "start" "commit" "rollback"  "declare" "release" "savepoint"
         "set" "reset" "filter"))
+
 (setq edgeql-keywords-types
       '("type" "property" "link" "migration" "view" "role" "alias" "module"
         "index" "annotation" "constraint"))
+
 (setq edgeql-keywords-mod '("required" "multi" "extending" "abstract"))
 
 (setq edgeql-type-builtins
@@ -56,10 +56,10 @@
         "bool" "bytes" "datetime" "decimal" "duration" "enum" "float32"
         "float64" "int16" "int32" "int64" "json" "local_date" "local_datetime"
         "local_time" "sequence" "str" "tuple" "uuid"))
+
 (setq edgeql-operators
       '("->" "!=" "%" "*" "+" "++" "-" "/" "//" ":=" "<" "<=" "=" ">" ">="
         "?!=" "?=" "??" "^"))
-
 
 (setq edgeql-font-lock-keywords
       (list
@@ -67,11 +67,8 @@
        (cons (regexp-opt (mapcar 'upcase edgeql-keywords-types) t) font-lock-type-face)
        (cons (regexp-opt edgeql-keywords-mod t) font-lock-preprocessor-face)
        (cons (regexp-opt edgeql-type-builtins t) font-lock-builtin-face)
-       (cons (regexp-opt edgeql-operators t) font-lock-constant-face)
-       ))
+       (cons (regexp-opt edgeql-operators t) font-lock-constant-face)))
 
-
-;; indentation
 (defvar edgeql-indent-offset 4)
 
 (defun edgeql-indent-line ()
@@ -107,17 +104,15 @@
     st)
   "Syntax table for edgeql-mode")
 
-
 ;; automatically upcase keywords
 (setq edgeql-autocap-words
       (concat "\\<"
               (regexp-opt (append edgeql-keywords-statements  edgeql-keywords-types) t)
               "\\>[^[:alnum:]_]"))
 
-(defun edgeql-upcase-keywords ()
-  (when (looking-back edgeql-autocap-words)
-    (upcase-word -1)))
-
+;; (defun edgeql-upcase-keywords ()
+;;   (when (looking-back edgeql-autocap-words)
+;;     (upcase-word -1)))
 
 (defun edgeql-mode ()
   "Major mode for editing EdgeQL files"
@@ -127,20 +122,9 @@
   (use-local-map edgeql-mode-map)
   (set (make-local-variable 'font-lock-defaults) '(edgeql-font-lock-keywords))
   (set (make-local-variable 'indent-line-function) 'edgeql-indent-line)
-
   (add-hook 'post-self-insert-hook 'edgeql-upcase-keywords nil t)
   (setq major-mode 'edgeql-mode)
   (setq mode-name "EdgeQL")
   (run-hooks 'edgeql-mode-hook))
 
-
 (provide 'edgeql-mode)
-
-
-;;; debug looking-at
-;; (defun lkat ()
-;;   "interactive looking at"
-;;   (interactive)
-;;   (if (looking-at ".*{")
-;;       (message "yes")
-;;     (message "no")))
