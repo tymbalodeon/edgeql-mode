@@ -5,6 +5,7 @@
           '("constraint"
             "default"
             "extending"
+            "global"
             "link"
             "multi"
             "property"
