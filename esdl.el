@@ -2,12 +2,14 @@
 
 (defvar esdl-keywords
   (append lowercase-keywords
-          '("constraint"
+          '("access"
+            "constraint"
             "default"
             "extending"
             "global"
             "link"
             "multi"
+            "policy"
             "property"
             "required"
             "scalar"
