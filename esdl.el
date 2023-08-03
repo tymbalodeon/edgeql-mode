@@ -3,7 +3,8 @@
 (defvar esdl-keywords
   (edgeql-add-upcase-keywords
    (append lowercase-keywords
-           '("access"
+           '("abstract"
+             "access"
              "after"
              "constraint"
              "default"
