@@ -28,7 +28,7 @@
   `(((,(regexp-opt esdl-keywords 'words) . font-lock-keyword-face)
      (,(regexp-opt esdl-types 'words) . font-lock-type-face))))
 
-(define-derived-mode esdl-mode fundamental-mode "ESDL mode"
+(define-derived-mode esdl-mode prog-mode "ESDL mode"
   "ESDL mode is a major mode for editing ESDL files"
   (setq font-lock-defaults esdl-font-lock-defaults)
   (when esdl-tab-width
