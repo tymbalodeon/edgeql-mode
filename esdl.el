@@ -26,7 +26,9 @@
 (defvar esdl-types
   '("bool"
     "datetime"
+    "int16"
     "int32"
+    "int64"
     "json"
     "str"
     "uuid"))
