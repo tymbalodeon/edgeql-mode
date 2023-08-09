@@ -7,3 +7,5 @@
   '("\\.edgeql$")
   nil
   "EdgeQL Mode")
+
+(add-hook 'edgeql-mode-hook 'display-line-numbers-mode)
